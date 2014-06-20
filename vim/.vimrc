@@ -7,25 +7,26 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-"Plugin 'ervandew/supertab'
+Plugin 'ervandew/supertab'
 "Plugin 'vim-scripts/taglist.vim'
 Plugin 'bling/vim-airline'
 "Plugin 'flazz/vim-colorschemes'
 Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'kien/ctrlp.vim'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kana/vim-textobj-user'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
-"Plugin 'matthewtodd/vim-twilight'
-Plugin 'chriskempson/base16-vim'
 Plugin 'slim-template/vim-slim.git'
 Plugin 'nvie/vim-flake8'
 Plugin 'sjl/gundo.vim'
-
+"ColorScheme
+Plugin 'chriskempson/base16-vim'
+"Plugin 'matthewtodd/vim-twilight'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -35,20 +36,32 @@ filetype plugin indent on    " required
 "
 
 syntax enable
-set nonumber
-set norelativenumber
-set list
 filetype on
 
 " Settings for generic stuff
-set autoindent
-set smartindent
-set nowrap
-set modeline
-set ts=4 sw=4 et
+set autochdir
+set autoindent smartindent
+set foldenable foldmethod=syntax
 set encoding=utf-8
+set hlsearch
+set incsearch
+set list
+set modeline
+set nonumber
+set norelativenumber
+set switchbuf=useopen,usetab
+set ts=4 sw=4 et
+set omnifunc=syntaxcomplete#Complete
+set wildmode=longest:full,full
+set wildmenu
+set nowrap
 
-" FileType Specific Stuff
+
+" FileType Specific Stuff, a bunch of these are the same as above
+au FileType python setl sw=4 ts=4 sts=4 et
+au FileType java setl sts=4 sw=4 et
+au FileType c,cpp setl sw=4 ts=4 sts=4 et
+
 
 "Tags and Trees mappings
 map tt <plug>NERDTreeTabsToggle<CR>
