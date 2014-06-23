@@ -10,7 +10,6 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'ervandew/supertab'
 "Plugin 'vim-scripts/taglist.vim'
 Plugin 'bling/vim-airline'
-"Plugin 'flazz/vim-colorschemes'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'kien/ctrlp.vim'
@@ -52,10 +51,22 @@ set norelativenumber
 set switchbuf=useopen,usetab
 set ts=4 sw=4 et
 set omnifunc=syntaxcomplete#Complete
-set wildmode=longest:full,full
-set wildmenu
+set completeopt=longest,menuone
 set nowrap
 
+
+" Command Line auto complete
+set wildmenu
+set wildmode=list:longest:full
+" List of file extensions with lower priority
+set suffixes=".o,.info,.obj,.pdf,.bak,.log,.svn.out"
+set wildignore="*.o,.svn,.git,*.swp,*.class,obj*/**, *.bak, *.obj"
+
+" Search Stuff
+set ignorecase
+set incsearch
+set magic
+set smartcase
 
 " FileType Specific Stuff, a bunch of these are the same as above
 au FileType python setl sw=4 ts=4 sts=4 et
@@ -70,10 +81,16 @@ nnoremap tl :tabprev<CR>
 nnoremap tn :tabnew<CR>
 nnoremap tu :GundoToggle<CR>
 
-" Always show statusline
+""""""""""""""""""""""""""""""
+" airline
+" """"""""""""""""""""""""""""""
 set laststatus=2
-"let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
+set cmdheight=1
+let g:airline_theme             = 'powerlineish'
+let g:airline_enable_branch     = 1
+let g:airline_enable_syntastic  = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 0
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 
@@ -89,7 +106,6 @@ colorscheme base16-3024
 "Formatting Stuff
 set lcs=tab:│┈,trail:·,extends:>,precedes:<,nbsp:&
 set colorcolumn=80
-
 
 "nnoremap <F2> :set nonumber!<CR>
 nnoremap <F2> :call NumberToggle()<CR>
