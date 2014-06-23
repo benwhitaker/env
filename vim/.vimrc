@@ -50,23 +50,32 @@ set nonumber
 set norelativenumber
 set switchbuf=useopen,usetab
 set ts=4 sw=4 et
-set omnifunc=syntaxcomplete#Complete
-set completeopt=longest,menuone
 set nowrap
 
 
-" Command Line auto complete
-set wildmenu
-set wildmode=list:longest:full
-" List of file extensions with lower priority
-set suffixes=".o,.info,.obj,.pdf,.bak,.log,.svn.out"
-set wildignore="*.o,.svn,.git,*.swp,*.class,obj*/**, *.bak, *.obj"
+"""""""""""""
+" Command Auto Compelte Junk
+"""""""""""" 
+    set wildmenu
+    set wildmode=list:longest:full
+    " List of file extensions with lower priority
+    set suffixes=".o,.info,.obj,.pdf,.bak,.log,.svn.out"
+    set wildignore="*.o,.svn,.git,*.swp,*.class,obj*/**, *.bak, *.obj"
 
+""""""""""""""
+" Tab Completion
+""""""""""""""
+    let g:SuperTabDefaultCompletionType = "context"
+    set completeopt=longest,menuone
+    set omnifunc=syntaxcomplete#Complete
+
+"""""""""""""""
 " Search Stuff
-set ignorecase
-set incsearch
-set magic
-set smartcase
+"""""""""""""""
+    set ignorecase
+    set incsearch
+    set magic
+    set smartcase
 
 " FileType Specific Stuff, a bunch of these are the same as above
 au FileType python setl sw=4 ts=4 sts=4 et
@@ -74,7 +83,7 @@ au FileType java setl sts=4 sw=4 et
 au FileType c,cpp setl sw=4 ts=4 sts=4 et
 
 
-"Tags and Trees mappings
+"Tabs and Trees mappings
 map tt <plug>NERDTreeTabsToggle<CR>
 nnoremap th :tabnext<CR>
 nnoremap tl :tabprev<CR>
