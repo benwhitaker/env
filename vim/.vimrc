@@ -39,28 +39,32 @@ filetype on
 
 " Settings for generic stuff
 set autochdir
-set autoindent smartindent
-set foldenable foldmethod=syntax
 set encoding=utf-8
-set hlsearch
-set incsearch
 set list
-set modeline
+set modeline "Don't use on untrusted systems/files
 set nonumber
 set norelativenumber
-set switchbuf=useopen,usetab
-set ts=4 sw=4 et
-set nowrap
 
+"""""""""""
+" Editing
+""""""""""
+    set backspace=indent,eol,start
+    set foldenable foldmethod=syntax
+    set smartindent
+    set smarttab
+    set switchbuf=useopen,usetab
+    set ts=4 sw=4 et
+    set nowrap
 
 """""""""""""
-" Command Auto Compelte Junk
+" Command Stuff
 """""""""""" 
-    set wildmenu
-    set wildmode=list:longest:full
+    set showcmd                            "show typed command
+    set wildmenu                           "Auto completion
+    set wildmode=list:longest:full         "somewhat bash style"
     " List of file extensions with lower priority
     set suffixes=".o,.info,.obj,.pdf,.bak,.log,.svn.out"
-    set wildignore="*.o,.svn,.git,*.swp,*.class,obj*/**, *.bak, *.obj"
+    set wildignore="*.pyc,*.o,.svn,.git,*.swp,*.class,obj*/**, *.bak, *.obj"
 
 """"""""""""""
 " Tab Completion
@@ -72,15 +76,42 @@ set nowrap
 """""""""""""""
 " Search Stuff
 """""""""""""""
+    set hlsearch
+    set incsearch
     set ignorecase
     set incsearch
-    set magic
+    "set magic
     set smartcase
 
-" FileType Specific Stuff, a bunch of these are the same as above
-au FileType python setl sw=4 ts=4 sts=4 et
-au FileType java setl sts=4 sw=4 et
-au FileType c,cpp setl sw=4 ts=4 sts=4 et
+""""""""""""""
+"  System Stuff
+""""""""""""""
+    set viminfo='20,\"500   " remember copy registers after quitting in the .viminfo file -- 20 jump links, regs up to 500 lines'
+    "viminfo=!,'100,<50,s10,h
+    set hidden              " remember undo after quitting
+    set history=2000        " keep 2000 lines of command history
+
+"""""""""""""
+" Auto Stuff
+""""""""""""
+    if has("autocmd")
+
+    " FileType Specific Stuff, a bunch of these are the same as above
+    au FileType python setl sw=4 ts=4 sts=4 et
+    au FileType java setl sts=4 sw=4 et
+    au FileType c,cpp setl sw=4 ts=4 sts=4 et
+
+
+    " Always jump to the last known cursor position. 
+    " Don't do it when the position is invalid or when inside
+    " an event handler (happens when dropping a file on gvim). 
+    autocmd BufReadPost * 
+        \ if line("'\"") > 0 && line("'\"") <= line("$") | 
+        \   exe "normal g`\"" | 
+        \ endif 
+
+endif " has("autocmd")
+
 
 
 "Tabs and Trees mappings
@@ -93,15 +124,15 @@ nnoremap tu :GundoToggle<CR>
 """"""""""""""""""""""""""""""
 " airline
 " """"""""""""""""""""""""""""""
-set laststatus=2
-set cmdheight=1
-let g:airline_theme             = 'powerlineish'
-let g:airline_enable_branch     = 1
-let g:airline_enable_syntastic  = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 0
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
+    set laststatus=2
+    set cmdheight=1
+    let g:airline_theme             = 'powerlineish'
+    let g:airline_enable_branch     = 1
+    let g:airline_enable_syntastic  = 1
+    let g:airline#extensions#tabline#enabled = 1
+    let g:airline_powerline_fonts = 0
+    let g:airline#extensions#tabline#left_sep = ' '
+    let g:airline#extensions#tabline#left_alt_sep = '|'
 
 " Use 256 colours (Use this setting only if your terminal supports 256 colours)
 "set t_Co=256
