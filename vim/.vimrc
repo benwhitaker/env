@@ -23,6 +23,10 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'slim-template/vim-slim.git'
 Plugin 'nvie/vim-flake8'
 Plugin 'sjl/gundo.vim'
+Plugin 'Shougo/vimshell.vim'
+Plugin 'Shougo/vimproc.vim'
+Plugin 'spolu/dwm.vim'
+
 "ColorScheme
 Plugin 'chriskempson/base16-vim'
 "Plugin 'matthewtodd/vim-twilight'
@@ -133,6 +137,19 @@ nnoremap tu :GundoToggle<CR>
     let g:airline_powerline_fonts = 0
     let g:airline#extensions#tabline#left_sep = ' '
     let g:airline#extensions#tabline#left_alt_sep = '|'
+
+"""""""""""""""""""""""""""""""""
+" DWM
+""""""""""""""""""""""""""""""""
+    "Make current window master and resuffle others
+    nnoremap <C-m> :call DWM_Focus() <CR>
+    " Use mouse for awesome stuff
+    set mouse=a
+    set ttymouse=xterm2
+
+"""""""""""""""""""""""""""
+" Colors and scheme
+"""""""""""""""""""""""""""
 
 " Use 256 colours (Use this setting only if your terminal supports 256 colours)
 "set t_Co=256
