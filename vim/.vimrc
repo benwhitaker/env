@@ -23,8 +23,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'slim-template/vim-slim.git'
 Plugin 'nvie/vim-flake8'
 Plugin 'sjl/gundo.vim'
-Plugin 'Shougo/vimshell.vim'
-Plugin 'Shougo/vimproc.vim'
+""Plugin 'Shougo/vimshell.vim'
+""Plugin 'Shougo/vimproc.vim'
 Plugin 'spolu/dwm.vim'
 
 "ColorScheme
@@ -38,16 +38,16 @@ filetype plugin indent on    " required
 "end Vundle Junk
 "
 
-syntax enable
-filetype on
-
+""""""""""""""""""""""""""""""
 " Settings for generic stuff
-set autochdir
-set encoding=utf-8
-set list
-set modeline "Don't use on untrusted systems/files
-set nonumber
-set norelativenumber
+"""""""""""""""""""""""""""""
+    syntax enable
+    filetype on
+    set autochdir
+    set encoding=utf-8
+    set modeline "Don't use on untrusted systems/files
+    set nonumber
+    set norelativenumber
 
 """""""""""
 " Editing
@@ -117,17 +117,20 @@ set norelativenumber
 endif " has("autocmd")
 
 
+"""""""""""""""""""""""""""""""
+" NERDTree
+"""""""""""""""""""""""""""""""
+    "Tabs and Trees mappings
+    map tt <plug>NERDTreeTabsToggle<CR>
+    nnoremap th :tabnext<CR>
+    nnoremap tl :tabprev<CR>
+    nnoremap tn :tabnew<CR>
+    nnoremap tu :GundoToggle<CR>
 
-"Tabs and Trees mappings
-map tt <plug>NERDTreeTabsToggle<CR>
-nnoremap th :tabnext<CR>
-nnoremap tl :tabprev<CR>
-nnoremap tn :tabnew<CR>
-nnoremap tu :GundoToggle<CR>
 
 """"""""""""""""""""""""""""""
 " airline
-" """"""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""
     set laststatus=2
     set cmdheight=1
     let g:airline_theme             = 'powerlineish'
@@ -150,40 +153,16 @@ nnoremap tu :GundoToggle<CR>
 """""""""""""""""""""""""""
 " Colors and scheme
 """""""""""""""""""""""""""
+    set background=dark
+    let base16colorspace=256  " Access colors present in 256 colorspace
+    colorscheme base16-3024
+    set lcs=tab:│┈,trail:·,extends:>,precedes:<,nbsp:&
+    set colorcolumn=80
+    set list
 
-" Use 256 colours (Use this setting only if your terminal supports 256 colours)
-"set t_Co=256
-set background=dark
-let base16colorspace=256  " Access colors present in 256 colorspace
-colorscheme base16-3024
-"let g:solarized_termcolors=256
-"colorscheme solarized
-"colorscheme twilight256
-
-"Formatting Stuff
-set lcs=tab:│┈,trail:·,extends:>,precedes:<,nbsp:&
-set colorcolumn=80
-
-"nnoremap <F2> :set nonumber!<CR>
-nnoremap <F2> :call NumberToggle()<CR>
-"au FocusLost * :set number
-"au FocusGained * :set relativenumber
-"autocmd InsertEnter * :set norelativenumber
-"autocmd InsertLeave * :set relativenumber
-"
-function! NumberToggle()
-    if &l:number == 1 || &l:relativenumber == 1
-        set nonumber
-        set norelativenumber
-        autocmd InsertEnter * :set nonumber
-        autocmd InsertLeave * :set norelativenumber
-    else
-        set relativenumber
-        "au FocusLost * :set number
-        autocmd InsertEnter * :set norelativenumber
-        autocmd InsertEnter * :set number
-        autocmd InsertLeave * :set relativenumber
-        autocmd InsertLeave * :set nonumber
-    endif
-endfunction
+"""""""""""""""""""""""""""""""""
+" Included scripts
+"""""""""""""""""""""""""""""""""
+source ~/.vim/functions.vim
+source ~/.vim/bhammond.vim
 
