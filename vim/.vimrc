@@ -52,7 +52,8 @@ filetype plugin indent on    " required
 " Editing
 """"""""""
     set backspace=indent,eol,start
-    set foldenable foldmethod=syntax
+    " Folding is fun but can be bothersome"
+    " set foldenable foldmethod=syntax
     set smartindent
     set smarttab
     set switchbuf=useopen,usetab
