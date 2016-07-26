@@ -8,21 +8,20 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 Plugin 'ervandew/supertab'
-"Plugin 'vim-scripts/taglist.vim'
 Plugin 'bling/vim-airline'
-" Plugin 'scrooloose/nerdtree'
-" Plugin 'scrooloose/nerdcommenter'
-" Plugin 'kien/ctrlp.vim'
 " Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
-" Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kana/vim-textobj-user'
 Plugin 'tpope/vim-sensible'
-" Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'slim-template/vim-slim.git'
-Plugin 'nvie/vim-flake8'
 Plugin 'sjl/gundo.vim'
+
+" Python Stuff"
+" Be sure to easy_install jedi"
+Plugin 'davidhalter/jedi-vim'
+Plugin 'nvie/vim-flake8'
+
 
 "ColorScheme
 Plugin 'chriskempson/base16-vim'
