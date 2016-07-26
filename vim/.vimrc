@@ -10,22 +10,19 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'ervandew/supertab'
 "Plugin 'vim-scripts/taglist.vim'
 Plugin 'bling/vim-airline'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'kien/ctrlp.vim'
-"Plugin 'Valloric/YouCompleteMe'
+" Plugin 'scrooloose/nerdtree'
+" Plugin 'scrooloose/nerdcommenter'
+" Plugin 'kien/ctrlp.vim'
+" Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
-Plugin 'jistr/vim-nerdtree-tabs'
+" Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kana/vim-textobj-user'
 Plugin 'tpope/vim-sensible'
-Plugin 'tpope/vim-surround'
+" Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'slim-template/vim-slim.git'
 Plugin 'nvie/vim-flake8'
 Plugin 'sjl/gundo.vim'
-""Plugin 'Shougo/vimshell.vim'
-""Plugin 'Shougo/vimproc.vim'
-Plugin 'spolu/dwm.vim'
 
 "ColorScheme
 Plugin 'chriskempson/base16-vim'
@@ -45,7 +42,9 @@ filetype plugin indent on    " required
     filetype on
     set autochdir
     set encoding=utf-8
+    " Danger! """"""""
     set modeline "Don't use on untrusted systems/files
+    "  DANGER ! """"""
     set nonumber
     set norelativenumber
 
@@ -117,17 +116,6 @@ filetype plugin indent on    " required
 endif " has("autocmd")
 
 
-"""""""""""""""""""""""""""""""
-" NERDTree
-"""""""""""""""""""""""""""""""
-    "Tabs and Trees mappings
-    map tt <plug>NERDTreeTabsToggle<CR>
-    nnoremap th :tabnext<CR>
-    nnoremap tl :tabprev<CR>
-    nnoremap tn :tabnew<CR>
-    nnoremap tu :GundoToggle<CR>
-
-
 """"""""""""""""""""""""""""""
 " airline
 """""""""""""""""""""""""""""""
@@ -140,15 +128,6 @@ endif " has("autocmd")
     let g:airline_powerline_fonts = 0
     let g:airline#extensions#tabline#left_sep = ' '
     let g:airline#extensions#tabline#left_alt_sep = '|'
-
-"""""""""""""""""""""""""""""""""
-" DWM
-""""""""""""""""""""""""""""""""
-    "Make current window master and resuffle others
-    nnoremap <C-m> :call DWM_Focus() <CR>
-    " Use mouse for awesome stuff
-    set mouse=a
-    set ttymouse=xterm2
 
 """""""""""""""""""""""""""
 " Colors and scheme
@@ -163,6 +142,7 @@ endif " has("autocmd")
 """""""""""""""""""""""""""""""""
 " Included scripts
 """""""""""""""""""""""""""""""""
-source ~/.vim/functions.vim
-source ~/.vim/bhammond.vim
+" None for now "
+" source ~/.vim/functions.vim
+" source ~/.vim/bhammond.vim
 
