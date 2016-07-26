@@ -8,7 +8,8 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 Plugin 'ervandew/supertab'
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 " Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 Plugin 'kana/vim-textobj-user'
@@ -42,7 +43,7 @@ filetype plugin indent on    " required
     set autochdir
     set encoding=utf-8
     " Danger! """"""""
-    set modeline "Don't use on untrusted systems/files
+    " set modeline "Don't use on untrusted systems/files
     "  DANGER ! """"""
     set nonumber
     set norelativenumber
